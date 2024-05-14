@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="submit">
+      <div class="row w-33">
+        <label for="uid">Käyttäjä ID:</label>
+        <input type="text" name="uid" />
+      </div>
+      <div class="row w-33">
+        <label for="password">Salasana:</label>
+        <input type="text" name="password" />
+      </div>
+      <div class="row">
+        <label for="fullname">Nimi:</label>
+        <input type="text" name="fullname" />
+      </div>
+      <div class="row">
+        <label for="address">Osoite:</label>
+        <input type="text" name="address" />
+      </div>
+      <div class="row w-33">
+        <label for="country">Maa:</label>
+        <select name="country" id="">
+          <option value="">(Valitse maa)</option>
+          <option value="fi">Suomi</option>
+          <option value="se">Ruotsi</option>
+          <option value="gb">Iso-Britannia</option>
+        </select>
+      </div>
+      <div class="row w-50">
+        <label for="zipcode">Postinumero:</label>
+        <input type="number" name="zipcode" />
+      </div>
+      <div class="row">
+        <label for="email">Sähköposti:</label>
+        <input type="text" name="email" />
+      </div>
+      <div class="row">
+        <label for="gender">Sukupuoli:</label>
+        <div>
+          <input type="radio" name="gender" value="M" />
+          Mies
+          <input type="radio" name="gender" value="F" />
+          Nainen
+        </div>
+      </div>
+      <div class="row">
+        <label for="lang">Kieli:</label>
+        <div>
+          <input type="radio" name="lang" value="fi" />
+          Suomi
+          <input type="radio" name="lang" value="other" />
+          Muu kuin suomi
+        </div>
+      </div>
+      <div class="row">
+        <label for="additional">Lisätietoja:</label>
+        <textarea name="additional" id=""></textarea>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
