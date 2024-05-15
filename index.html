@@ -7,63 +7,105 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="submit">
-      <div class="row w-33">
-        <label for="uid">Käyttäjä ID:</label>
-        <input type="text" name="uid" />
-      </div>
-      <div class="row w-33">
-        <label for="password">Salasana:</label>
-        <input type="text" name="password" />
-      </div>
-      <div class="row">
-        <label for="fullname">Nimi:</label>
-        <input type="text" name="fullname" />
-      </div>
-      <div class="row">
-        <label for="address">Osoite:</label>
-        <input type="text" name="address" />
-      </div>
-      <div class="row w-33">
-        <label for="country">Maa:</label>
-        <select name="country" id="">
-          <option value="">(Valitse maa)</option>
-          <option value="fi">Suomi</option>
-          <option value="se">Ruotsi</option>
-          <option value="gb">Iso-Britannia</option>
-        </select>
-      </div>
-      <div class="row w-50">
-        <label for="zipcode">Postinumero:</label>
-        <input type="number" name="zipcode" />
-      </div>
-      <div class="row">
-        <label for="email">Sähköposti:</label>
-        <input type="text" name="email" />
-      </div>
-      <div class="row">
-        <label for="gender">Sukupuoli:</label>
-        <div>
-          <input type="radio" name="gender" value="M" />
-          Mies
-          <input type="radio" name="gender" value="F" />
-          Nainen
+    <div class="container">
+      <form action="submit">
+        <div class="row">
+          <div class="col-25">
+            <label for="uid">Käyttäjä ID:</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="uid" />
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <label for="lang">Kieli:</label>
-        <div>
-          <input type="radio" name="lang" value="fi" />
-          Suomi
-          <input type="radio" name="lang" value="other" />
-          Muu kuin suomi
+        <div class="row">
+          <div class="col-25">
+            <label for="password">Salasana:</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="password" />
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <label for="additional">Lisätietoja:</label>
-        <textarea name="additional" id=""></textarea>
-      </div>
-    </form>
+        <div class="row">
+          <div class="col-25">
+            <label for="fullname">Nimi:</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fullname" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="address">Osoite:</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="address" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="country">Maa:</label>
+          </div>
+          <div class="col-25">
+            <select id="country">
+              <option value="">(Valitse maa)</option>
+              <option value="fi">Suomi</option>
+              <option value="se">Ruotsi</option>
+              <option value="gb">Iso-Britannia</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="zipcode">Postinumero:</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="zipcode" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="email">Sähköposti:</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label>Sukupuoli:</label>
+          </div>
+          <div class="col-25" id="gender">
+            <input type="radio" name="gender" value="M" id="gender-male" />
+            <label for="gender-male">Mies</label>
+            <input type="radio" name="gender" value="F" id="gender-female" />
+            <label for="gender-female">Nainen</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label>Kieli:</label>
+          </div>
+          <div class="col-25">
+            <input type="radio" name="lang" value="fi" id="lang-fi" />
+            <label for="lang-fi">Suomi</label>
+            <input type="radio" name="lang" value="other" id="lang-other" />
+            <label for="lang-other">Muu kuin suomi</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="additional">Lisätietoja:</label>
+          </div>
+          <div class="col-75">
+            <textarea id="additional" placeholder="Vapaaehtoinen"></textarea>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
