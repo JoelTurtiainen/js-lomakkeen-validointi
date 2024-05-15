@@ -1,93 +1,86 @@
 const form = document.querySelector('form');
 
-function validate(e) {
-  console.log(e);
-  if (['SELECT', 'INPUT', 'RADIO'].includes(e.target.tagName)) {
-    const val = e.target.value;
-    const id = e.target.id;
-    console.log(id);
-    const parent = e.target.parentElement;
+function validate(et) {
+	if (['SELECT', 'INPUT', 'RADIO'].includes(et.tagName)) {
+		const val = et.value;
+		const id = et.id;
+		const parent = et.parentElement;
 
-    if (parent.lastElementChild.className === 'info') parent.lastElementChild.remove();
+		if (parent.lastElementChild.className === 'info')
+			parent.lastElementChild.remove();
 
-    let faults = [];
-    let pattern;
+		let faults = [];
+		let pattern;
 
-    switch (id) {
-      case 'uid':
-        if (val.length < 6) {
-          faults.push('Minimi pituus 6 merkkiä');
-        }
-        break;
+		switch (id) {
+			case 'uid':
+				val.length < 6
+					? faults.push('Minimi pituus 6 merkkiä')
+					: '';
+				break;
 
-      case 'password':
-        if (val.length <= 6) {
-          faults.push('Minimi pituus 6 merkkiä');
-        }
+			case 'password':
+				val.length < 6
+					? faults.push('Minimi pituus 6 merkkiä')
+					: '';
+				/[!@£$€&%#]/.test(val) === false
+					? faults.push('1 merkki')
+					: '';
+				/[A-Ö]/.test(val) === false
+					? faults.push('1 iso kirjain')
+					: '';
+				/[0-9]/.test(val) === false
+					? faults.push('1 numero')
+					: '';
+				break;
 
-        if (/[!@£$€&%#]/.test(val) === false) {
-          faults.push('1 merkki');
-        }
+			case 'zipcode':
+				val.length !== 5 || /[0-9]/.test(val) === false
+					? faults.push('Pituus täytyy olla 5 numeroa')
+					: '';
+				break;
 
-        if (/[A-Ö]/.test(val) === false) {
-          faults.push('1 iso kirjain');
-        }
+			case 'email':
+				pattern = /[a-z|0-9|.]+[@][a-z]+[.][a-z]/di;
+				val === ''
+					? faults.push('Kenttä ei saa olla tyhjä')
+					: '';
+				pattern.test(val) === false
+					? faults.push('Sähköposti ei ole oikean muotoinen')
+					: '';
+				break;
 
-        if (/[0-9]/.test(val) === false) {
-          faults.push('1 numero');
-        }
+			default:
+				val === ''
+					? faults.push('Kenttä ei saa olla tyhjä')
+					: '';
+				break;
+		}
 
-        break;
+		if (faults.length > 0) {
+			const ul = document.createElement('ul');
+			ul.className = 'info';
+			for (f of faults) {
+				const li = document.createElement('li');
+				const text = document.createTextNode(f);
+				li.appendChild(text);
+				ul.appendChild(li);
+			}
 
-      case 'zipcode':
-        if (val.length !== 5 || /[0-9]/.test(val) === false) {
-          faults.push('Pituus täytyy olla 5 numeroa');
-        }
-        break;
-
-      case 'email':
-        pattern = /[a-z|0-9|.]+[@][a-z]+[.][a-z]/di;
-
-        if (val === '') {
-          faults.push('Kenttä ei saa olla tyhjä');
-        } else if (pattern.test(val) === false) {
-          faults.push('Sähköposti ei ole oikean muotoinen');
-        }
-        break;
-
-      case 'country':
-        if (val === '') {
-          faults.push('Maa ei saa olla tyhjä');
-        }
-        break;
-
-      default:
-        if (val === '') {
-          faults.push('Kenttä ei saa olla tyhjä');
-        }
-        break;
-    }
-
-    if (faults.length > 0) {
-      const ul = document.createElement('ul');
-      ul.className = 'info';
-      for (f of faults) {
-        const li = document.createElement('li');
-        const text = document.createTextNode(f);
-        li.appendChild(text);
-        ul.appendChild(li);
-      }
-
-      parent.appendChild(ul);
-    }
-  }
+			parent.appendChild(ul);
+		}
+	}
 }
 
 function onSubmit(event) {
-  event.preventDefault();
-  for (element of event.target.elements) {
-    validate(event.target.elements[element.id]);
-  }
+	event.preventDefault();
+	for (i in event.target.elements) {
+		validate(event.target.elements[i]);
+	}
 }
-form.addEventListener('focusout', validate);
+
+function onfocusOut(event) {
+	validate(event.target);
+}
+form.addEventListener('focusout', onfocusOut);
 form.addEventListener('submit', onSubmit);
