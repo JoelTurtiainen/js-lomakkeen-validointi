@@ -2,7 +2,10 @@
 <html lang="fi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -14,7 +17,7 @@
             <label for="uid">Käyttäjä ID:</label>
           </div>
           <div class="col-25">
-            <input type="text" id="uid" />
+            <input type="text" name="uid" id="uid" />
           </div>
         </div>
         <div class="row">
@@ -22,7 +25,7 @@
             <label for="password">Salasana:</label>
           </div>
           <div class="col-25">
-            <input type="text" id="password" />
+            <input type="text" name="password" id="password" />
           </div>
         </div>
         <div class="row">
@@ -30,7 +33,7 @@
             <label for="fullname">Nimi:</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fullname" />
+            <input type="text" name="fullname" id="fullname" />
           </div>
         </div>
         <div class="row">
@@ -38,7 +41,7 @@
             <label for="address">Osoite:</label>
           </div>
           <div class="col-75">
-            <input type="text" id="address" />
+            <input type="text" name="address" id="address" />
           </div>
         </div>
         <div class="row">
@@ -46,7 +49,7 @@
             <label for="country">Maa:</label>
           </div>
           <div class="col-25">
-            <select id="country">
+            <select name="country" id="country">
               <option value="">(Valitse maa)</option>
               <option value="fi">Suomi</option>
               <option value="se">Ruotsi</option>
@@ -59,7 +62,7 @@
             <label for="zipcode">Postinumero:</label>
           </div>
           <div class="col-25">
-            <input type="text" id="zipcode" />
+            <input type="text" name="zipcode" id="zipcode" />
           </div>
         </div>
         <div class="row">
@@ -67,17 +70,27 @@
             <label for="email">Sähköposti:</label>
           </div>
           <div class="col-25">
-            <input type="text" id="email" />
+            <input type="text" name="email" id="email" />
           </div>
         </div>
         <div class="row">
           <div class="col-25">
             <label>Sukupuoli:</label>
           </div>
-          <div class="col-25" id="gender">
-            <input type="radio" name="gender" value="M" id="gender-male" />
+          <div class="col-75" name="gender" id="gender">
+            <input
+              type="radio"
+              name="gender"
+              value="M"
+              id="gender-male"
+            />
             <label for="gender-male">Mies</label>
-            <input type="radio" name="gender" value="F" id="gender-female" />
+            <input
+              type="radio"
+              name="gender"
+              value="F"
+              id="gender-female"
+            />
             <label for="gender-female">Nainen</label>
           </div>
         </div>
@@ -85,10 +98,20 @@
           <div class="col-25">
             <label>Kieli:</label>
           </div>
-          <div class="col-25">
-            <input type="radio" name="lang" value="fi" id="lang-fi" />
+          <div class="col-75" name="lang" id="lang">
+            <input
+              type="radio"
+              name="lang"
+              value="fi"
+              id="lang-fi"
+            />
             <label for="lang-fi">Suomi</label>
-            <input type="radio" name="lang" value="other" id="lang-other" />
+            <input
+              type="radio"
+              name="lang"
+              value="other"
+              id="lang-other"
+            />
             <label for="lang-other">Muu kuin suomi</label>
           </div>
         </div>
@@ -97,7 +120,10 @@
             <label for="additional">Lisätietoja:</label>
           </div>
           <div class="col-75">
-            <textarea id="additional" placeholder="Vapaaehtoinen"></textarea>
+            <textarea
+              id="additional"
+              placeholder="Vapaaehtoinen"
+            ></textarea>
           </div>
         </div>
         <br />
